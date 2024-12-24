@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="src/bootstrap.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+    <coverage includeUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src/TransactionProcessing/Domain</directory>
+            <directory suffix=".php">src/TransactionProcessing/UseCase</directory>
+        </include>
+    </coverage>
+    <testsuites>
+        <testsuite name="TransactionProcessing">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+</phpunit>

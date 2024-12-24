@@ -1,0 +1,33 @@
+---
+version: '3'
+services:
+  cli:
+    image: skaleet/interview:latest
+    command: "bash"
+    working_dir: /app
+    volumes:
+      - .:/app
+
+  console:
+    image: skaleet/interview:latest
+    entrypoint: "php bin/console.php"
+    working_dir: /app
+    volumes:
+      - .:/app
+
+  install:
+    image: skaleet/interview:latest
+    build:
+      context: .
+      dockerfile: docker/cli/Dockerfile
+    command: "bash -c 'composer install'"
+    working_dir: /app
+    volumes:
+      - .:/app
+
+  test:
+    image: skaleet/interview:latest
+    command: "vendor/bin/phpunit"
+    working_dir: /app
+    volumes:
+      - .:/app
